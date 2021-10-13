@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <title>succes</title>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 sec:authentication="name">Auth name</h1>
+    <h2 sec:authentication="principal.authorities">Roles</h2>
+     <h1 th:text="${'Hello ' }">Получилось!</h1>
+    </br>
+</div>
+<p><a th:href="@{/}" href="#">На главную</a></p>
+</form>
+
+</body>
+</html>

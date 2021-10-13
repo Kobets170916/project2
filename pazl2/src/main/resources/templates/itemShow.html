@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>itemShow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header ::header"></header>
+</nav>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <h5 class="=my-0 mr-md-auto font-weight-normal">PAZL CLAB</h5>
+    <nav class="my-2 m2-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Главная</a>
+        <a class="p-2 text-dark" href="/item/itemShow">Товары в наличи (все)</a>
+        <a class="p-2 text-dark" href="/item">Редактировать товар (админ)</a>
+        <a class="p-2 text-dark" href="/item/itemAdd">Добавить товар (админ)</a>
+
+        </nav>
+</div>
+<div class="container mt-5">
+    <h1>Товары в наличи</h1>
+    <div th:each="el : ${items}" class="alert alert-info mt-2">
+        <h3 th:text="${el.name}" />
+        <p th:text="${el.count}"/>
+        <p th:text="${el.description}"/>
+        <a th:href="'/item/' + ${el.id}" class="bth bth-warning">Детальнее</a>
+    </div>
+</div>
+<div th:insert="blocks/footer ::footer"></div>
+</body>
+</html>

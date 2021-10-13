@@ -1,0 +1,34 @@
+<div th:fragment="header">
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <h5 class="=my-0 mr-md-auto font-weight-normal">PAZL</h5>
+        <nav class="my-2 m2-md-0 mr-md-3">
+            <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
+                <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/}">Главная</a>
+                <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/itemShow}">Товары в
+                        наличи(все)</a>
+                    <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0"
+                          th:action="@{/item}" method="post">
+                        <button class="btn btn-outline-success my-2 my-sm-0">Редактировать товар (админ)</button>
+                    </form>
+                    <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0"
+                          th:action="@{/item/itemAdd}" method="post">
+                        <button class="btn btn-outline-success my-2 my-sm-0">Добавить товар (админ)</button>
+                    </form>
+
+                    <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
+                        <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/register}">Регистрация</a>
+                        <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
+                             <a class="btn btn-outline-success my-2 mr-2 my-sm-0" th:href="@{/login}">Авторизация</a>
+                            <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0"
+                                  th:action="@{/logout}"
+                                  method="post">
+                                <button class="btn btn-outline-success my-2 my-sm-0">Выйти</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
